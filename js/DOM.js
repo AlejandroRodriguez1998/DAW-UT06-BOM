@@ -1215,11 +1215,23 @@ function showResource(){
 					var season = document.createElement("p");
 					season.setAttribute("class","cajaTitulo");
 					season.appendChild(document.createTextNode("Temporada "+(index+1)+":"));
-					var episodios = document.createElement("p");
-					episodios.setAttribute("class","cajaDescripcion");
-					episodios.appendChild(document.createTextNode(produccion.value.seasons[index].episodes));
+					
 					cuerpo.appendChild(season);
-					cuerpo.appendChild(episodios);	
+
+					for(let indexArray = 0; indexArray < produccion.value.seasons[index].episodes.length; indexArray++){
+						var episodio = document.createElement("p");
+						episodio.setAttribute("class","cajaDescripcion");
+						
+						var concatenar = produccion.value.seasons[index].episodes[indexArray].title + ": " 
+						+ produccion.value.seasons[index].episodes[indexArray].episode + " ";
+
+						for(let indexCoor = 0; indexCoor < produccion.value.seasons[index].episodes[indexArray].scenarios.length; indexCoor++){
+							concatenar += produccion.value.seasons[index].episodes[indexArray].scenarios[indexCoor] + " ";
+						}
+
+						episodio.appendChild(document.createTextNode(concatenar));
+						cuerpo.appendChild(episodio);
+					}
 				}
 			}
 		}//Fin del if

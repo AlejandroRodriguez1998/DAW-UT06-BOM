@@ -3,3 +3,5 @@ Añadir un botón a cada producción que muestre la información de sus recursos
 
 # Version 1.0.0
  - Añadida funcionalidad BOM
+# Version 1.0.1
+ - Completado algunos errores
